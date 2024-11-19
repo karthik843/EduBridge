@@ -1,0 +1,65 @@
+Write program to display the message as
+"object oriented programming" if input is java
+"procedural and object oriented programming" if input is c++
+"structural programming language" if input is c
+Using Polymorphism
+To implement this create a base class ProgrammingLanguage
+and child classes CLanguage and C++Language
+write display method in all the three classes.
+at last create a test class write the do-while with switch case
+[refer my last program on polymorphism]
+--- programmingLanguage
+package aravind;
+public class programmingLanguage {
+void display() {
+}
+}
+class C extends programmingLanguage {
+@Override
+void display() {
+System.out.println("structural programming language");
+}
+}
+class CPlusPlus extends programmingLanguage {
+@Override
+void display() {
+System.out.println("procedural and object oriented programming");
+}
+}
+class Java extends programmingLanguage {
+@Override
+void display() {
+System.out.println("object oriented programming");
+}
+}
+--- testProgrammingLanguage
+package aravind;
+import java.util.Scanner;
+public class testProgrammingLanguage {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+Scanner sc = new Scanner(System.in);
+String in;
+do {
+System.out.print("Enter a programming language (java/c++/c) or 'exit'
+to quit: ");
+in = sc.nextLine();
+programmingLanguage lang = null;
+switch (in.toLowerCase()) {
+case "java":
+lang = new Java();
+break;
+case "c++":
+lang = new CPlusPlus();
+break;
+case "c":
+lang = new C();
+break;
+default:
+System.out.println("Invalid input. Please try again.");
+continue;
+}
+lang.display();
+} while (!in.equalsIgnoreCase("exit"));
+}
+}
